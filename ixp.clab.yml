@@ -2,12 +2,14 @@ name: ixp
 
 topology:
   nodes:
-    peer1:
-      kind: vr-nokia_sros
-      image: sros:23.3.R1
-      license: license.key
-      startup-config: configs/sros.partial.cfg
-    peer2:
+    peer1: # bird peer
+      kind: linux
+      image: ghcr.io/srl-labs/bird:2.13
+      binds:
+        - configs/bird_peer1.conf:/etc/bird.conf
+      exec:
+        - "ip address add dev eth1 192.168.0.1/24"
+    peer2: # frr peer
       kind: linux
       image: quay.io/frrouting/frr:8.4.1
       binds:
