@@ -1,4 +1,4 @@
-# IXP Lab with Nokia SR OS, FRR and BIRD/OpenBGPd as Route Servers
+# IXP Lab with BIRD, FRR as Peers and BIRD, OpenBGPd as Route Servers
 
 A containerlab-based lab designed to offer hands-on experience with IXP technologies and best practices.
 
