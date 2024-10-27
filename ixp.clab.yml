@@ -26,7 +26,7 @@ topology:
       kind: linux
       image: ghcr.io/srl-labs/bird:2.13
       binds:
-        - configs/bird_peer2.conf:/etc/bird.conf
+        - configs/bird_rs1.conf:/etc/bird.conf
       exec:
         - "ip address add dev eth1 192.168.0.4/24"
     ixp-net:
