@@ -15,9 +15,11 @@ topology:
       binds:
         - configs/frr.conf:/etc/frr/frr.conf
         - configs/frr-daemons.cfg:/etc/frr/daemons
-    peer3: # vJunosRouter peer
-      kind: juniper_vjunosrouter
-      image: marcelbaarsch/junosvrouter:23.2R1.15
+    peer3: # cRPD peer
+      kind: crpd
+      image: marcelbaarsch/crpd:23.2R1.13
+      exec:
+        - "ip addr add 192.168.0.5/24 dev eth1"
       #startup-config: configs/vjunos_peer3.cfg
     rs1: # route server #1
       kind: linux
