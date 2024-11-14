@@ -18,9 +18,8 @@ topology:
     peer3: # cRPD peer
       kind: crpd
       image: marcelbaarsch/crpd:23.2R1.13
-      exec:
-        - "ip addr add 192.168.0.5/24 dev eth1"
-      #startup-config: configs/vjunos_peer3.cfg
+      license: licenses/cRPD-license.key
+      startup-config: configs/vjunos_peer3.cfg
     rs1: # route server #1
       kind: linux
       image: quay.io/openbgpd/openbgpd:7.9
