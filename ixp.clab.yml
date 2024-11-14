@@ -15,6 +15,10 @@ topology:
       binds:
         - configs/frr.conf:/etc/frr/frr.conf
         - configs/frr-daemons.cfg:/etc/frr/daemons
+    peer3: # vJunosRouter peer
+      kind: juniper_vjunosrouter
+      image: marcelbaarsch/junosvrouter:23.2R1.15
+      #startup-config: configs/vjunos_peer3.cfg
     rs1: # route server #1
       kind: linux
       image: quay.io/openbgpd/openbgpd:7.9
@@ -35,5 +39,6 @@ topology:
   links:
     - endpoints: ["peer1:eth1", "ixp-net:port1"]
     - endpoints: ["peer2:eth1", "ixp-net:port2"]
+    - endpoints: ["peer3:eth1", "ixp-net:port5"]
     - endpoints: ["rs1:eth1", "ixp-net:port3"]
     - endpoints: ["rs2:eth1", "ixp-net:port4"]
